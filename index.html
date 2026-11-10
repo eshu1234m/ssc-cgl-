@@ -4,71 +4,427 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SSC CGL MCQ Practice</title>
+<title>SSC CGL Master Practice</title>
 
 <style>
-body {
-  font-family: Arial, sans-serif;
-  background: #f1f5f9;
-  margin: 0;
-  padding: 20px;
+:root {
+  --bg: #0b1020;
+  --panel: #131c31;
+  --panel2: #19243b;
+  --text: #f3f6ff;
+  --muted: #a5b1c8;
+  --blue: #638cff;
+  --border: #293650;
+  --green: #42d6a4;
 }
-.container {
-  max-width: 750px;
-  margin: 30px auto;
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Inter, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
 }
 header {
-  background: #1d4ed8;
-  color: white;
-  padding: 25px;
+  padding: 22px 7%;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+.logo {
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: .5px;
+}
+.logo span { color: var(--blue); }
+.header-tag {
+  color: var(--muted);
+  font-size: 13px;
+}
+main {
+  width: min(1150px, 92%);
+  margin: auto;
+}
+.hero {
+  margin-top: 35px;
+  padding: 42px;
+  border-radius: 22px;
+  background: linear-gradient(120deg, #172d59, #172039 65%, #25214b);
+  border: 1px solid #35466d;
+}
+.eyebrow {
+  color: #a9c0ff;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+h1 {
+  font-size: clamp(30px, 5vw, 48px);
+  margin: 15px 0;
+  line-height: 1.15;
+}
+.hero p {
+  color: #c1cce2;
+  line-height: 1.7;
+  max-width: 650px;
+}
+.hero-label {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 9px 15px;
+  border-radius: 30px;
+  background: #243c70;
+  color: #dbe6ff;
+  font-size: 13px;
+}
+.section-title {
+  margin: 38px 0 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.section-title h2 { margin: 0; font-size: 23px; }
+.section-title p {
+  color: var(--muted);
+  font-size: 13px;
+  margin: 6px 0 0;
+}
+.search {
+  width: 100%;
+  padding: 15px 17px;
   border-radius: 12px;
-  text-align: center;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: white;
+  font-size: 15px;
+  outline: none;
+}
+.search:focus { border-color: var(--blue); }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 17px;
 }
 .card {
-  background: white;
-  padding: 20px;
-  margin-top: 18px;
-  border-radius: 12px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  padding: 21px;
+  border-radius: 17px;
+  transition: .2s;
 }
-a {
-  display: block;
-  background: #eff6ff;
-  color: #1d4ed8;
-  padding: 14px;
-  margin-top: 10px;
-  border-radius: 8px;
+.card:hover {
+  transform: translateY(-3px);
+  border-color: #637fbc;
+}
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.symbol {
+  width: 45px;
+  height: 45px;
+  border-radius: 13px;
+  display: grid;
+  place-items: center;
+  font-size: 23px;
+  background: #23375e;
+}
+.status {
+  font-size: 11px;
+  color: var(--green);
+  background: #143c35;
+  padding: 6px 9px;
+  border-radius: 20px;
+}
+.status.soon {
+  color: #f5c66d;
+  background: #44351d;
+}
+.card h3 { margin: 18px 0 7px; font-size: 19px; }
+.card p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+  min-height: 40px;
+}
+.card-link {
+  display: inline-block;
+  margin-top: 9px;
+  color: #a9c0ff;
   text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
 }
-a:hover {
-  background: #dbeafe;
+.card-link:hover { color: white; }
+.coming {
+  color: #e4b96e;
+  font-size: 13px;
+  margin-top: 15px;
+}
+.physics-panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 24px;
+  margin-top: 18px;
+}
+.physics-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.physics-heading h3 { margin: 0; font-size: 20px; }
+.physics-heading p { color: var(--muted); font-size: 13px; }
+.quiz-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  margin-top: 20px;
+}
+.quiz-link {
+  text-align: center;
+  padding: 13px 5px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #dce6ff;
+  background: var(--panel2);
+  border: 1px solid var(--border);
+  font-size: 13px;
+}
+.quiz-link:hover {
+  background: #29477d;
+  border-color: var(--blue);
+}
+.note {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+  margin-top: 18px;
+}
+footer {
+  text-align: center;
+  padding: 35px 15px;
+  margin-top: 50px;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+}
+.hidden { display: none !important; }
+@media(max-width: 750px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+  .quiz-grid { grid-template-columns: repeat(4, 1fr); }
+  .hero { padding: 27px 22px; }
+}
+@media(max-width: 430px) {
+  header { padding: 17px 5%; }
+  .header-tag { display: none; }
+  .grid { grid-template-columns: 1fr; }
+  .quiz-grid { grid-template-columns: repeat(3, 1fr); }
+  .section-title h2 { font-size: 20px; }
 }
 </style>
 </head>
 
 <body>
-<div class="container">
 
 <header>
-  <h1>SSC CGL MCQ Practice</h1>
-  <p>Chapter-wise Online Practice</p>
+  <div class="logo">SSC CGL <span>MASTER</span></div>
+  <div class="header-tag">Your exam preparation platform</div>
 </header>
 
-<div class="card">
-  <h2>History</h2>
-  <a href="modern-history.html">Modern History Quiz</a>
-  <a href="ancient-history.html">Ancient History Quiz</a>
-</div>
+<main>
 
-<div class="card">
-  <h2>Physics</h2>
-  <a href="physics-motion.html">Motion Quiz</a>
-</div>
+  <section class="hero">
+    <div class="eyebrow">Learn · Practice · Improve</div>
+    <h1>Prepare Smarter.<br>Score Higher.</h1>
+    <p>
+      Your complete SSC CGL chapter-wise practice platform.
+      Learn important concepts and strengthen your preparation
+      through carefully organized MCQ quizzes.
+    </p>
+    <span class="hero-label">SSC CGL • CHAPTER-WISE MCQ PRACTICE</span>
+  </section>
 
-<div class="card">
-  <h2>Indian Polity</h2>
-  <a href="constitution.html">Constitution Quiz</a>
-</div>
+  <section>
+    <div class="section-title">
+      <div>
+        <h2>Explore Subjects</h2>
+        <p>Select a subject to access its chapter-wise practice.</p>
+      </div>
+    </div>
 
-</div>
+    <input
+      class="search"
+      id="subjectSearch"
+      type="search"
+      placeholder="Search subjects... e.g. Physics, History, Biology"
+      oninput="filterSubjects()"
+    >
+
+    <div class="grid" id="subjectGrid">
+
+      <article class="card" data-search="ancient history">
+        <div class="card-top">
+          <div class="symbol">🏺</div>
+          <span class="status soon">Coming Soon</span>
+        </div>
+        <h3>Ancient History</h3>
+        <p>Indus Valley, Vedic Age, Maurya, Gupta and more.</p>
+        <div class="coming">Chapter quizzes will be added here.</div>
+      </article>
+
+      <article class="card" data-search="medieval history">
+        <div class="card-top">
+          <div class="symbol">🏰</div>
+          <span class="status soon">Coming Soon</span>
+        </div>
+        <h3>Medieval History</h3>
+        <p>Delhi Sultanate, Mughal Empire, Bhakti and Sufi movements.</p>
+        <div class="coming">Chapter quizzes will be added here.</div>
+      </article>
+
+      <article class="card" data-search="modern history">
+        <div class="card-top">
+          <div class="symbol">📜</div>
+          <span class="status soon">Coming Soon</span>
+        </div>
+        <h3>Modern History</h3>
+        <p>British rule, freedom struggle, movements and important events.</p>
+        <div class="coming">Chapter quizzes will be added here.</div>
+      </article>
+
+      <article class="card" data-search="biology general science">
+        <div class="card-top">
+          <div class="symbol">🧬</div>
+          <span class="status soon">Coming Soon</span>
+        </div>
+        <h3>Biology</h3>
+        <p>Human body, cells, plants, diseases and life sciences.</p>
+        <div class="coming">Chapter quizzes will be added here.</div>
+      </article>
+
+      <article class="card" data-search="physics general science">
+        <div class="card-top">
+          <div class="symbol">⚛️</div>
+          <span class="status">Available</span>
+        </div>
+        <h3>Physics</h3>
+        <p>Motion, force, energy, electricity, light and more.</p>
+        <a class="card-link" href="#physics-quizzes">Explore Physics →</a>
+      </article>
+
+      <article class="card" data-search="chemistry general science">
+        <div class="card-top">
+          <div class="symbol">🧪</div>
+          <span class="status soon">Coming Soon</span>
+        </div>
+        <h3>Chemistry</h3>
+        <p>Atoms, elements, compounds, reactions and everyday chemistry.</p>
+        <div class="coming">Chapter quizzes will be added here.</div>
+      </article>
+
+      <article class="card" data-search="geography">
+        <div class="card-top">
+          <div class="symbol">🌍</div>
+          <span class="status soon">Coming Soon</span>
+        </div>
+        <h3>Geography</h3>
+        <p>Indian geography, world geography, rivers, climate and resources.</p>
+        <div class="coming">Chapter quizzes will be added here.</div>
+      </article>
+
+      <article class="card" data-search="polity indian constitution">
+        <div class="card-top">
+          <div class="symbol">⚖️</div>
+          <span class="status soon">Coming Soon</span>
+        </div>
+        <h3>Indian Polity</h3>
+        <p>Constitution, Parliament, President, fundamental rights and more.</p>
+        <div class="coming">Chapter quizzes will be added here.</div>
+      </article>
+
+      <article class="card" data-search="economics">
+        <div class="card-top">
+          <div class="symbol">📊</div>
+          <span class="status soon">Coming Soon</span>
+        </div>
+        <h3>Economics</h3>
+        <p>Indian economy, banking, budget, planning and economic concepts.</p>
+        <div class="coming">Chapter quizzes will be added here.</div>
+      </article>
+
+    </div>
+    <p id="noResults" class="note hidden">No matching subject found.</p>
+  </section>
+
+  <section id="physics-quizzes">
+    <div class="section-title">
+      <div>
+        <h2>Physics Practice</h2>
+        <p>Your existing uploaded Physics quizzes.</p>
+      </div>
+      <span class="status">Available</span>
+    </div>
+
+    <div class="physics-panel">
+      <div class="physics-heading">
+        <div>
+          <h3>Physics MCQ Collection</h3>
+          <p>Choose a quiz number to start practising.</p>
+        </div>
+      </div>
+
+      <div class="quiz-grid" id="physicsQuizList"></div>
+
+      <p class="note">
+        These links open your existing numbered HTML files.
+        Your original quiz files are not changed by this homepage.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <strong>SSC CGL MASTER PRACTICE</strong>
+  <p>Learn consistently. Practise regularly. Achieve your goals.</p>
+</footer>
+
+<script>
+function filterSubjects() {
+  const search = document.getElementById("subjectSearch")
+    .value.toLowerCase().trim();
+
+  const cards = document.querySelectorAll("#subjectGrid .card");
+  let visible = 0;
+
+  cards.forEach(card => {
+    const matches = card.dataset.search.includes(search);
+    card.classList.toggle("hidden", !matches);
+    if (matches) visible++;
+  });
+
+  document.getElementById("noResults")
+    .classList.toggle("hidden", visible !== 0);
+}
+
+// Existing Physics files in the repository root: 3.html to 35.html
+const quizList = document.getElementById("physicsQuizList");
+
+for (let number = 3; number <= 35; number++) {
+  const link = document.createElement("a");
+  link.className = "quiz-link";
+  link.href = number + ".html";
+  link.textContent = "Quiz " + number;
+  quizList.appendChild(link);
+}
+</script>
+
 </body>
 </html>
