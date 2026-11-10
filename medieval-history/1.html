@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page 1 – Arab Invasion of India MCQ Quiz</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f2f5fa;color:#182230;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+main{max-width:760px;margin:18px auto;padding:12px}.card{background:white;border:1px solid #d8e1ef;border-radius:18px;padding:20px;box-shadow:0 5px 20px #10204012}
+h1{font-size:27px;color:#173b73;margin:16px 0 5px}.muted{color:#607086;line-height:1.5}.pill{display:inline-block;background:#eaf1ff;color:#194a91;border-radius:22px;padding:8px 12px;font-weight:700;font-size:13px;margin:0 5px 5px 0}
+.row{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-top:22px;font-weight:700}.track{height:9px;background:#e8edf5;border-radius:9px;margin:15px 0 22px;overflow:hidden}.fill{height:100%;background:#2563eb;width:0}
+.q{font-size:20px;line-height:1.45;font-weight:750;margin:10px 0 18px}.opt{display:flex;gap:12px;align-items:flex-start;border:1.5px solid #d9e1ec;border-radius:12px;padding:14px;margin:10px 0;cursor:pointer;line-height:1.4}.opt input{margin-top:3px;accent-color:#2563eb;width:18px;height:18px;flex-shrink:0}.opt.selected{border-color:#2563eb;background:#eff5ff}.opt.correct{border-color:#16834a;background:#edfaf3}.opt.incorrect{border-color:#b42318;background:#fff1f0}
+.feedback{padding:14px;border-radius:12px;margin-top:14px;line-height:1.5}.good{background:#edfaf3;border:1px solid #9ad8b8}.bad{background:#fff1f0;border:1px solid #f1aaa4}
+button{border:0;border-radius:11px;padding:13px 17px;font-size:15px;font-weight:700;margin:8px 7px 0 0;cursor:pointer}.primary{background:#2563eb;color:white}.secondary{background:#edf1f7;color:#26364b}.disabled{opacity:.45}.hide{display:none}.small{font-size:13px;color:#68778c}.score{font-size:34px;font-weight:800;color:#173b73}.review{background:#f6f8fc;padding:14px;border-radius:12px;margin:12px 0}.review div{padding:12px 0;border-bottom:1px solid #e0e6ef;line-height:1.45}
+</style></head><body><main><section class="card">
+<div><span class="pill">PAGE 1 • 35 MCQs</span><span class="pill">Offline quiz</span></div>
+<h1>Arab Invasion of India</h1><p class="muted">Mixed difficulty · One question at a time · Instant feedback · Detailed explanations</p>
+<div id="quiz">
+<div class="row"><span id="counter">Question 1 of 35</span><span id="answered" class="muted">Answered: 0 / 35</span></div>
+<div class="track"><div class="fill" id="fill"></div></div>
+<div class="small" id="qnum">QUESTION 1</div><div class="q" id="question">Loading question…</div>
+<div id="options"></div><div id="feedback"></div>
+<div><button class="secondary" id="prev">← Previous</button><button class="primary" id="submit">Submit answer</button><button class="primary hide" id="next">Next question →</button><button class="secondary" id="reset">Reset quiz</button></div>
+</div>
+<div id="result" class="hide"><h2>Quiz completed</h2><div class="score" id="score"></div><p id="summary"></p><div class="review" id="review"></div><button class="primary" id="again">Attempt again</button></div>
+<p class="muted small" style="margin-top:20px">Your progress is saved in this browser on this device. Questions follow the supplied notes; verify historical details with your prescribed textbook.</p>
+</section></main>
+<script>
+"use strict";
+const DATA = [{"q": "According to the notes, the word 'History' means:", "opts": ["What will happen", "What happened", "What should happen", "What is happening"], "a": 1, "why": "The notes define History as 'What happened.'"}, {"q": "Who is identified in the notes as the Father of History?", "opts": ["Aristotle", "Herodotus", "Thucydides", "Plato"], "a": 1, "why": "Herodotus is traditionally known as the Father of History."}, {"q": "Which period is classified as Ancient India in the notes?", "opts": ["Up to 712 AD", "712–1707 AD", "1707–1947 AD", "Up to 1206 AD"], "a": 0, "why": "The page classifies Ancient India as extending up to 712 AD."}, {"q": "According to the page, Medieval India covers which period?", "opts": ["Before 712 AD", "712 AD–1707 AD", "1707 AD–1947 AD", "1206 AD–1857 AD"], "a": 1, "why": "The classification shown is Medieval India: 712 AD–1707 AD."}, {"q": "Modern India is dated in the page as:", "opts": ["712–1707 AD", "1206–1526 AD", "1707–1947 AD", "1947–2026 AD"], "a": 2, "why": "The notes give 1707 AD–1947 AD for Modern India."}, {"q": "Which of the following is listed as one of the names associated with the oldest religion in the world?", "opts": ["Sanatan Dharma", "Zoroastrianism", "Jain Dharma", "Buddhism"], "a": 0, "why": "The page lists Sanatan Dharma, Hindu Dharma and Arya Dharma."}, {"q": "Which two parts make up the Bible as listed in the Christianity section?", "opts": ["Vedas and Upanishads", "Old Testament and New Testament", "Torah and Quran", "Gospels and Tripitaka"], "a": 1, "why": "The notes list the Old Testament and New Testament."}, {"q": "Which holy book is associated with Islam in the page?", "opts": ["Bible", "Quran", "Torah", "Tripitaka"], "a": 1, "why": "The page identifies the Quran as the holy book of Islam."}, {"q": "According to the notes, Prophet Muhammad was born in:", "opts": ["570 AD", "610 AD", "622 AD", "632 AD"], "a": 0, "why": "The page gives 570 AD as the year of Prophet Muhammad's birth."}, {"q": "Which place is identified as Prophet Muhammad's birthplace?", "opts": ["Medina", "Baghdad", "Mecca", "Damascus"], "a": 2, "why": "The notes identify Mecca in Saudi Arabia as his birthplace."}, {"q": "In which year did Prophet Muhammad die according to the page?", "opts": ["570 AD", "622 AD", "628 AD", "632 AD"], "a": 3, "why": "The page records his death in 632 AD."}, {"q": "Arabia is primarily described in the notes as a:", "opts": ["Mountainous region", "Desert region", "Tropical forest region", "River valley"], "a": 1, "why": "The page says Arabia is primarily a desert region, though some areas had fertile land."}, {"q": "How was Arab society mainly organised according to the notes?", "opts": ["Into kingdoms only", "Into tribes", "Into city-states ruled by elected councils", "Into occupational guilds"], "a": 1, "why": "The notes state that Arab society was mainly organised into tribes."}, {"q": "What was common in pre-Islamic Arabia according to the notes?", "opts": ["Monotheism only", "Worship of many gods", "Buddhist monasticism", "Christianity as the only religion"], "a": 1, "why": "The page identifies polytheism, or worship of many gods, as common."}, {"q": "How many idols does the page say were contained in the Kaaba?", "opts": ["100", "200", "360", "500"], "a": 2, "why": "The Kaaba section states that it contained 360 idols."}, {"q": "To which tribe did Prophet Muhammad belong according to the page?", "opts": ["Umayyad", "Quraysh", "Abbasid", "Ansar"], "a": 1, "why": "The notes state that Prophet Muhammad belonged to the Quraysh tribe."}, {"q": "Who became the first Caliph according to the Caliphs section?", "opts": ["Umar", "Uthman", "Ali", "Abu Bakr"], "a": 3, "why": "Abu Bakr is identified as the first Caliph."}, {"q": "Which Caliph is associated with the year 634 AD in the page?", "opts": ["Abu Bakr", "Umar", "Uthman", "Ali"], "a": 1, "why": "The page labels Umar with 634 AD."}, {"q": "Which regions are listed among those conquered during Umar's period?", "opts": ["Syria, Egypt and Iran", "Spain, France and Portugal", "India, China and Tibet", "Yemen, Oman and Ethiopia"], "a": 0, "why": "The notes list Syria, Egypt and Iran."}, {"q": "Who is described as the son-in-law of Prophet Muhammad?", "opts": ["Abu Bakr", "Umar", "Uthman", "Ali"], "a": 3, "why": "The page describes Ali as the son-in-law of Prophet Muhammad."}, {"q": "Which dynasty overthrew the Umayyads in 750 AD?", "opts": ["Abbasid", "Fatimid", "Ottoman", "Seljuk"], "a": 0, "why": "The Abbasid dynasty overthrew the Umayyads in 750 AD."}, {"q": "What capital is given for the Abbasid dynasty?", "opts": ["Mecca", "Damascus", "Baghdad", "Cairo"], "a": 2, "why": "The notes identify Baghdad as the Abbasid capital."}, {"q": "What meaning of Jihad is provided in the page?", "opts": ["Pilgrimage to Mecca", "Struggle against those who do not follow Islam", "A tax on non-Muslims", "A religious festival"], "a": 1, "why": "The page defines Jihad as struggle against those who do not follow Islam."}, {"q": "In which year did the Battle of Tours take place according to the page?", "opts": ["636 AD", "711 AD", "713 AD", "732 AD"], "a": 3, "why": "The notes state that the Battle of Tours took place in 732 AD."}, {"q": "Which Indian trade items are listed as coming from India?", "opts": ["Dates and camels", "Spices, silk, cotton and cereals", "Gold, horses and weapons only", "Tea, coffee and rubber"], "a": 1, "why": "The page lists spices, silk, cotton and cereals as trade items from India."}, {"q": "Which mosque is identified as the first mosque in India, and where is it located?", "opts": ["Cheraman Juma Mosque, Kerala", "Jama Masjid, Delhi", "Mecca Masjid, Hyderabad", "Adhai Din Ka Jhonpra, Ajmer"], "a": 0, "why": "The page names Cheraman Juma Mosque in Kerala and gives 628 AD as its establishment date."}, {"q": "According to the notes, Muhammad bin Qasim invaded India in:", "opts": ["636 AD", "711 AD", "712 AD", "750 AD"], "a": 2, "why": "The specific invasion section says Muhammad bin Qasim invaded India in 712 AD. The quick-revision box separately says the Arab invasion began in 711 AD."}, {"q": "Through which pass did Muhammad bin Qasim come, according to the page?", "opts": ["Bolan Pass", "Khyber Pass", "Nathu La", "Shipki La"], "a": 1, "why": "The notes state that he came through the Khyber Pass."}, {"q": "Which of the following is listed as a major place conquered by Muhammad bin Qasim?", "opts": ["Debal", "Delhi", "Kannauj", "Pataliputra"], "a": 0, "why": "The list includes Debal, Nirun, Jats of Siwistan, Brahmanabad and Rawar."}, {"q": "What was the date of the Battle of Rawar given in the page?", "opts": ["20 June 712 AD", "20 July 711 AD", "10 June 713 AD", "20 June 732 AD"], "a": 0, "why": "The page gives 20 June 712 AD."}, {"q": "Who was defeated and killed in the Battle of Rawar according to the notes?", "opts": ["Raja Dahir", "Harsha", "Pulakeshin II", "Prithviraj Chauhan"], "a": 0, "why": "The notes state that Raja Dahir was defeated and killed."}, {"q": "In which year was Multan conquered according to the page?", "opts": ["711 AD", "712 AD", "713 AD", "750 AD"], "a": 2, "why": "The conquest of Multan is dated to 713 AD."}, {"q": "Jizya was imposed on which group according to the taxation policy section?", "opts": ["Muslims", "Non-Muslims", "Only traders", "Only soldiers"], "a": 1, "why": "The notes state that Jizya was imposed on non-Muslims."}, {"q": "Which early attack is shown as directed towards Mumbai and unsuccessful?", "opts": ["First attack in 636 AD", "First attack on Sindh in 711 AD", "Battle of Tours in 732 AD", "Conquest of Multan in 713 AD"], "a": 0, "why": "The Early Attempts panel says the first attack in 636 AD was directed towards Mumbai and failed."}, {"q": "Which statement best captures the difference between the 711 AD and 712 AD dates shown on the page?", "opts": ["Both dates refer to the Battle of Tours", "The quick-revision box says the Arab invasion began in 711 AD, while the Muhammad bin Qasim section dates his invasion to 712 AD", "The 711 AD date is the conquest of Multan and 712 AD is the Abbasid revolution", "The page gives 711 AD as Muhammad's birth and 712 AD as his death"], "a": 1, "why": "The page contains both dates in different contexts: a broad beginning date of 711 AD in quick revision and 712 AD for Muhammad bin Qasim's invasion."}];
+const KEY = "arab_invasion_page1_v2";
+const get = id => document.getElementById(id);
+let state;
+try { state = JSON.parse(localStorage.getItem(KEY) || "null"); } catch(e) { state = null; }
+if (!state || !state.answers || !state.checked) state = {answers:{}, checked:{}, current:0};
+function persist(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){} get("answered").textContent="Answered: "+Object.keys(state.answers).length+" / "+DATA.length;}
+function make(tag,cls,txt){const n=document.createElement(tag);if(cls)n.className=cls;if(txt!==undefined)n.textContent=txt;return n;}
+function render(){
+ if(state.current>=DATA.length){finish();return;}
+ get("quiz").classList.remove("hide");get("result").classList.add("hide");
+ const i=state.current, item=DATA[i], chosen=state.answers[i], checked=!!state.checked[i];
+ get("counter").textContent="Question "+(i+1)+" of "+DATA.length;
+ get("qnum").textContent="QUESTION "+(i+1);
+ get("question").textContent=item.q;
+ get("fill").style.width=(i/DATA.length*100)+"%";
+ get("options").replaceChildren();
+ get("feedback").replaceChildren();get("feedback").className="";
+ item.opts.forEach((opt,j)=>{
+   const lab=make("label","opt"+(chosen===j?" selected":"")+(checked&&j===item.a?" correct":"")+(checked&&chosen===j&&chosen!==item.a?" incorrect":""));
+   const radio=make("input");radio.type="radio";radio.name="answer";radio.checked=chosen===j;radio.disabled=checked;
+   const span=make("span","",String.fromCharCode(65+j)+". "+opt);
+   lab.append(radio,span);
+   lab.addEventListener("click",()=>{if(checked)return;state.answers[i]=j;persist();render();});
+   get("options").appendChild(lab);
+ });
+ if(checked){
+   const correct=chosen===item.a;
+   const fb=make("div","feedback "+(correct?"good":"bad"));
+   const strong=make("strong","",correct?"Correct!":"Not quite.");
+   fb.append(strong,make("div","", "Correct answer: "+String.fromCharCode(65+item.a)+". "+item.opts[item.a]),make("p","",item.why));
+   get("feedback").appendChild(fb);
+ }
+ get("prev").disabled=i===0;get("prev").classList.toggle("disabled",i===0);
+ get("submit").classList.toggle("hide",checked);get("next").classList.toggle("hide",!checked);
+ get("submit").disabled=chosen===undefined;get("submit").classList.toggle("disabled",chosen===undefined);
+ persist();
+}
+function submit(){if(state.answers[state.current]===undefined)return;state.checked[state.current]=true;persist();render();}
+function finish(){
+ get("quiz").classList.add("hide");get("result").classList.remove("hide");
+ const checked=Object.keys(state.checked),correct=checked.filter(k=>state.answers[k]===DATA[Number(k)].a).length;
+ get("score").textContent=correct+" / "+DATA.length;
+ get("summary").textContent="Accuracy: "+(checked.length?Math.round(correct/checked.length*100):0)+"% · Answered: "+checked.length+" · Not checked: "+(DATA.length-checked.length);
+ const wrong=checked.filter(k=>state.answers[k]!==DATA[Number(k)].a);
+ const box=get("review");box.replaceChildren(make("h3","","Revision list"));
+ if(!wrong.length)box.appendChild(make("p","","No incorrect answers among the questions you checked."));
+ wrong.forEach(k=>{const d=DATA[Number(k)],div=make("div");div.append(make("strong","","Q"+(Number(k)+1)+". "+d.q),make("p","","Your answer: "+d.opts[state.answers[k]]),make("p","","Correct answer: "+d.opts[d.a]),make("p","small",d.why));box.appendChild(div);});
+}
+get("submit").addEventListener("click",submit);
+get("prev").addEventListener("click",()=>{if(state.current>0){state.current--;render();}});
+get("next").addEventListener("click",()=>{state.current++;render();});
+get("reset").addEventListener("click",()=>{if(confirm("Clear saved answers and restart?")){state={answers:{},checked:{},current:0};persist();render();}});
+get("again").addEventListener("click",()=>{state={answers:{},checked:{},current:0};persist();render();});
+render();
+</script></body></html>
