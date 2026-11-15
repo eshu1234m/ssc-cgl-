@@ -1,1 +1,149 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Geography MCQ Practice | SSC CGL</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 25px 15px;
+  font-family: Arial, sans-serif;
+  background: #101827;
+  color: #ffffff;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.header h1 {
+  color: #60a5fa;
+  margin-bottom: 8px;
+}
+
+.header p {
+  color: #cbd5e1;
+}
+
+.search {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #475569;
+  border-radius: 10px;
+  background: #1e293b;
+  color: white;
+  font-size: 16px;
+  margin-bottom: 22px;
+}
+
+h2 {
+  font-size: 19px;
+  margin-bottom: 15px;
+}
+
+.quiz-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.quiz-link {
+  display: block;
+  padding: 17px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.quiz-link:hover {
+  background: #334155;
+  border-color: #60a5fa;
+  transform: translateY(-2px);
+}
+
+.quiz-link small {
+  display: block;
+  margin-top: 6px;
+  color: #94a3b8;
+}
+
+.back {
+  display: inline-block;
+  margin-top: 28px;
+  color: #60a5fa;
+  text-decoration: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="header">
+    <h1>🌍 Geography MCQ Practice</h1>
+    <p>SSC CGL Chapter-wise Geography Quizzes</p>
+  </div>
+
+  <input
+    type="text"
+    class="search"
+    id="search"
+    placeholder="Search Geography quizzes..."
+  >
+
+  <h2>Available Quizzes (61)</h2>
+
+  <div class="quiz-list" id="quizList"></div>
+
+  <a class="back" href="../index.html">← Back to Home</a>
+
+</div>
+
+<script>
+const quizList = document.getElementById("quizList");
+
+for (let number = 1; number <= 61; number++) {
+  const link = document.createElement("a");
+
+  link.className = "quiz-link";
+  link.href = number + ".html";
+
+  link.innerHTML =
+    "Geography Quiz " + number +
+    "<small>Quiz " + number + "</small>";
+
+  quizList.appendChild(link);
+}
+
+document.getElementById("search").addEventListener("input", function() {
+  const searchText = this.value.toLowerCase();
+
+  document.querySelectorAll(".quiz-link").forEach(function(link) {
+    link.style.display =
+      link.textContent.toLowerCase().includes(searchText)
+        ? "block"
+        : "none";
+  });
+});
+</script>
+
+</body>
+</html>
+
