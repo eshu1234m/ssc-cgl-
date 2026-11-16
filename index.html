@@ -228,6 +228,81 @@ footer {
   .quiz-grid { grid-template-columns: repeat(3, 1fr); }
   .section-title h2 { font-size: 20px; }
 }
+
+/* Overall study progress dashboard */
+.progress-dashboard {
+  margin-top: 24px;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--panel);
+}
+.progress-summary {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.progress-summary strong {
+  font-size: 28px;
+  color: var(--green);
+}
+.progress-summary span,
+.subject-progress small {
+  color: var(--muted);
+  font-size: 12px;
+}
+.progress-track {
+  height: 10px;
+  margin: 14px 0 20px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: var(--panel2);
+}
+.progress-fill {
+  height: 100%;
+  width: 0;
+  border-radius: inherit;
+  background: var(--green);
+  transition: width .25s ease;
+}
+.subject-progress-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.subject-progress {
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel2);
+}
+.subject-progress-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+.subject-progress-track {
+  height: 6px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #0b1020;
+}
+.subject-progress-fill {
+  height: 100%;
+  width: 0;
+  background: var(--blue);
+  border-radius: inherit;
+}
+@media(max-width: 550px) {
+  .subject-progress-list { grid-template-columns: 1fr; }
+  .progress-dashboard { padding: 18px; }
+}
+
 </style>
 </head>
 
@@ -249,6 +324,25 @@ footer {
       through carefully organized MCQ quizzes.
     </p>
     <span class="hero-label">SSC CGL • CHAPTER-WISE MCQ PRACTICE</span>
+  </section>
+
+
+  <section class="progress-dashboard" aria-label="Study progress">
+    <div class="section-title" style="margin:0 0 12px;">
+      <div>
+        <h2>My Study Progress</h2>
+        <p>Completed quizzes are saved on this browser.</p>
+      </div>
+    </div>
+    <div class="progress-summary">
+      <strong id="totalCompleted">0 / 396</strong>
+      <span id="totalPercent">0% completed</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="totalProgressFill"></div>
+    </div>
+    <div class="subject-progress-list" id="subjectProgressList"></div>
+    <p class="note">Tick a quiz on its subject page after completing it. You can untick it anytime. Progress is stored separately on each browser/device.</p>
   </section>
 
   <section>
@@ -491,6 +585,80 @@ for (let number = 1; number <= 35; number++) {
   link.textContent = "Quiz " + number;
   quizList.appendChild(link);
 }
+
+// Overall progress dashboard.
+// These paths must match the quiz URLs and the localStorage keys
+// used by the checkboxes on each subject page.
+const progressSubjects = [
+  { name: "Ancient History", folder: "ancient-history/", count: 38 },
+  { name: "Medieval History", folder: "medieval-history/", count: 25 },
+  { name: "Modern History", folder: "modern-history/", count: 36 },
+  { name: "Physics", folder: "", count: 35 },
+  { name: "Chemistry", folder: "chemistry/", count: 39 },
+  { name: "Biology", folder: "biology/", count: 51 },
+  { name: "Economics", folder: "economics/", count: 55 },
+  { name: "Polity", folder: "polity/", count: 56 },
+  { name: "Geography", folder: "geography/", count: 61 }
+];
+
+function getQuizStorageKey(subject, number) {
+  const quizUrl = new URL(subject.folder + number + ".html", document.baseURI);
+  return "sscQuizCompleted:" + quizUrl.pathname;
+}
+
+function updateStudyDashboard() {
+  let totalQuizzes = 0;
+  let totalCompleted = 0;
+  const list = document.getElementById("subjectProgressList");
+  if (!list) return;
+  list.innerHTML = "";
+
+  progressSubjects.forEach(subject => {
+    let completed = 0;
+    for (let number = 1; number <= subject.count; number++) {
+      if (localStorage.getItem(getQuizStorageKey(subject, number)) === "true") {
+        completed++;
+      }
+    }
+
+    totalQuizzes += subject.count;
+    totalCompleted += completed;
+
+    const percent = subject.count
+      ? Math.round((completed / subject.count) * 100)
+      : 0;
+
+    const item = document.createElement("div");
+    item.className = "subject-progress";
+    item.innerHTML = `
+      <div class="subject-progress-top">
+        <strong>${subject.name}</strong>
+        <small>${completed} / ${subject.count} completed</small>
+      </div>
+      <div class="subject-progress-track">
+        <div class="subject-progress-fill" style="width:${percent}%"></div>
+      </div>
+    `;
+    list.appendChild(item);
+  });
+
+  const totalPercent = totalQuizzes
+    ? Math.round((totalCompleted / totalQuizzes) * 100)
+    : 0;
+
+  document.getElementById("totalCompleted").textContent =
+    `${totalCompleted} / ${totalQuizzes}`;
+  document.getElementById("totalPercent").textContent =
+    `${totalPercent}% completed`;
+  document.getElementById("totalProgressFill").style.width =
+    `${totalPercent}%`;
+}
+
+updateStudyDashboard();
+window.addEventListener("storage", updateStudyDashboard);
+window.addEventListener("focus", updateStudyDashboard);
+
+
 </script>
 
 </body>
